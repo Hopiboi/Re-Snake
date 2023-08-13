@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //Speed and multiply it, speed * 
+
+    private Animator anim;
+
+    //Speed and multiply it, speed * multiply
+
+    [Header("Speed")]
     [SerializeField] private float speed = 20f;
     [SerializeField] private float speedMultiplier = 1f;
 
@@ -14,17 +20,17 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 direction = Vector2.right;
 
     //Segments
+    [Header("Snake Segment")]
     [SerializeField] private List<Transform> segments = new List<Transform>();
     [SerializeField] private Transform segmentPrefab;
-
-    //size of the snake at the beginning and adding
-    [SerializeField] private int initialSize = 1;
+    [SerializeField] private int initialSize = 1;     //size of the snake at the beginning and adding
 
     //Input
     private Vector2 input;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         ResetState();
     }
 
@@ -33,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
     //single frame, and for inputs
     void Update()
     {
+        Movement();
+    }
+
+    private void Movement()
+    {
 
         // Only allow turning up or down while moving in the x-axis
         if (direction.x != 0f)
@@ -40,10 +51,12 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 input = Vector2.up;
+                anim.Play("SnakeUp");
             }
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 input = Vector2.down;
+                anim.Play("SnakeDown");
             }
         }
         // Only allow turning left or right while moving in the y-axis
@@ -52,12 +65,15 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 input = Vector2.right;
+                anim.Play("SnakeRight");
             }
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 input = Vector2.left;
+                anim.Play("SnakeLeft");
             }
         }
+
 
     }
 
@@ -149,6 +165,7 @@ public class PlayerMovement : MonoBehaviour
         else if (collision.tag == "Obstacle")
         {
             ResetState();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         else if (collision.gameObject.CompareTag("Wall"))
