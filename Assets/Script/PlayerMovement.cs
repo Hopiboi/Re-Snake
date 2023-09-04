@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private Animator anim;
+    public GameObject GameOverScreen;
 
     //Speed and multiply it, speed * multiply
 
@@ -28,9 +29,13 @@ public class PlayerMovement : MonoBehaviour
     //Input
     private Vector2 input;
 
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
         ResetState();
     }
 
@@ -120,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
         segments.Add(segment);
     }
 
-    // Resetting
+    // Resetting without using button or connect it with button
     private void ResetState()
     {
         for (int i = 1; i < segments.Count; i++)
@@ -164,12 +169,18 @@ public class PlayerMovement : MonoBehaviour
 
         else if (collision.tag == "Obstacle")
         {
-            ResetState();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Debug.Log("Lose");
+            Destroy(gameObject);
+            speed = 0f;
+            speedMultiplier = 0f;
+            GameOverScreen.gameObject.SetActive(true);
         }
 
         else if (collision.gameObject.CompareTag("Wall"))
         {
+
+            Debug.Log("Walktrough");
+
             //right
             Vector3 position = transform.position;
 

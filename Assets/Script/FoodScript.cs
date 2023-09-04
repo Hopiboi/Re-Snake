@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+
 
 public class FoodScript : MonoBehaviour
 {
@@ -10,10 +12,27 @@ public class FoodScript : MonoBehaviour
     //The way to access another script
     private PlayerMovement snake;
 
+    [Header("Score")]
+    [SerializeField] private Text scoreText;
+    [SerializeField] public static int scoreNumber;
+    [SerializeField] private Text highScoreText;
+    [SerializeField] private static int highScoreNumber;
 
     void Start()
     {
+        //Storing the highscore even reloading the game
+        //if (PlayerPrefs.HasKey("Highscore"))
+        //{
+         //   highScoreNumber = PlayerPrefs.GetInt("Highscore");
+        //}
+
+
         snake = FindObjectOfType<PlayerMovement>();
+    }
+
+    private void Update()
+    {
+        HighScoreSystem();
     }
 
     private void RandomFoodPosition()
@@ -57,6 +76,31 @@ public class FoodScript : MonoBehaviour
         if (collision.tag == "Player")
         {
             RandomFoodPosition();
+
+            ScoreSystem();
+
+        }
+    }
+
+    //Scoring System
+    private void ScoreSystem()
+    {
+        scoreNumber += 1;
+        scoreText.text = "Score: " + scoreNumber;
+    }
+
+    //Highscore system
+    private void HighScoreSystem()
+    {
+
+        //printing it
+        highScoreText.text = "Highscore: " + highScoreNumber;
+
+        //current highscore is now passed by score
+        if (highScoreNumber < scoreNumber)
+        {
+            highScoreNumber = scoreNumber;
+            //PlayerPrefs.SetInt("Highscore", highScoreNumber);
         }
     }
 }
