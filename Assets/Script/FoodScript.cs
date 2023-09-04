@@ -21,10 +21,10 @@ public class FoodScript : MonoBehaviour
     void Start()
     {
         //Storing the highscore even reloading the game
-        //if (PlayerPrefs.HasKey("Highscore"))
-        //{
-         //   highScoreNumber = PlayerPrefs.GetInt("Highscore");
-        //}
+        if (PlayerPrefs.HasKey("Highscore"))
+        {
+           highScoreNumber = PlayerPrefs.GetInt("Highscore");
+        }
 
 
         snake = FindObjectOfType<PlayerMovement>();
@@ -100,7 +100,7 @@ public class FoodScript : MonoBehaviour
         if (highScoreNumber < scoreNumber)
         {
             highScoreNumber = scoreNumber;
-            //PlayerPrefs.SetInt("Highscore", highScoreNumber);
+            PlayerPrefs.SetInt("Highscore", highScoreNumber);
         }
     }
 }
