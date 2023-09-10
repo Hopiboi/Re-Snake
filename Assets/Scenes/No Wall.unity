@@ -194,9 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' Classic
-
-'
+  m_Text: '  No Wall'
 --- !u!222 &37970724
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -403,8 +401,8 @@ GameObject:
   m_Component:
   - component: {fileID: 201689715}
   - component: {fileID: 201689714}
-  - component: {fileID: 201689717}
   - component: {fileID: 201689719}
+  - component: {fileID: 201689720}
   - component: {fileID: 201689718}
   m_Layer: 0
   m_Name: Food
@@ -480,19 +478,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &201689717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201689713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fe8714df6b40f040af20827b8a741c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridArea: {fileID: 421629342}
 --- !u!58 &201689718
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -521,10 +506,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1853b4a935e21f64aaeb9846d0905b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 480457780}
-  scoreText1: {fileID: 0}
-  highScoreText: {fileID: 726823851}
-  highScoreText1: {fileID: 726823851}
+  scoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
+  noWallScoreText: {fileID: 480457780}
+  noWallHighScoreText: {fileID: 726823851}
+  fourCornersScoreText: {fileID: 0}
+  fourCornersHighScoreText: {fileID: 0}
+--- !u!114 &201689720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201689713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9a2d6d00c7aa34f879046522dc025b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridArea: {fileID: 421629342}
 --- !u!1 &235757066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,8 +1425,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1010174319}
   m_Layer: 0
-  m_Name: Obstacle
-  m_TagString: Obstacle
+  m_Name: Walls
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1446,11 +1446,11 @@ Transform:
   - {fileID: 2127521139}
   - {fileID: 1657026303}
   - {fileID: 2029442481}
-  - {fileID: 1506282370}
+  - {fileID: 1163364705}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1506282369
+--- !u!1 &1163364704
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1458,38 +1458,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1506282370}
-  - component: {fileID: 1506282371}
-  - component: {fileID: 1506282372}
+  - component: {fileID: 1163364705}
+  - component: {fileID: 1163364707}
+  - component: {fileID: 1163364706}
   m_Layer: 0
-  m_Name: Right
-  m_TagString: Obstacle
+  m_Name: RIght
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1506282370
+--- !u!4 &1163364705
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1506282369}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 16.555, y: 0.371, z: 0}
-  m_LocalScale: {x: 14.869911, y: 0.8924655, z: 0}
+  m_GameObject: {fileID: 1163364704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.08, y: 0.0015, z: 0}
+  m_LocalScale: {x: 1.0032833, y: 15.851398, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1010174319}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!212 &1506282371
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1163364706
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163364704}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!212 &1163364707
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1506282369}
+  m_GameObject: {fileID: 1163364704}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -1525,7 +1551,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.4959364, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.54901963, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1535,32 +1561,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1506282372
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1506282369}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1507478380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,7 +1626,7 @@ GameObject:
   - component: {fileID: 1657026305}
   m_Layer: 0
   m_Name: Down
-  m_TagString: Obstacle
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1639,8 +1639,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657026302}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0014, y: -7.5229, z: 0}
-  m_LocalScale: {x: 34.001534, y: 0.95, z: 0}
+  m_LocalPosition: {x: -0.0089, y: -7.45, z: 0}
+  m_LocalScale: {x: 31.23141, y: 0.95, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1010174319}
@@ -1688,7 +1688,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.4959364, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.54901963, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1817,7 +1817,7 @@ GameObject:
   - component: {fileID: 2029442483}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Obstacle
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1829,14 +1829,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029442480}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -16.555, y: 0.371, z: 0}
-  m_LocalScale: {x: 14.869911, y: 0.8924655, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.08, y: -0.0079, z: 0}
+  m_LocalScale: {x: 1.0032833, y: 15.83561, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1010174319}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2029442482
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1879,7 +1879,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.4959364, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.54901963, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1928,7 +1928,7 @@ GameObject:
   - component: {fileID: 2127521140}
   m_Layer: 0
   m_Name: Up
-  m_TagString: Obstacle
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1975,7 +1975,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.4959364, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.5486726, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1993,8 +1993,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127521137}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.5229, z: 0}
-  m_LocalScale: {x: 34.00153, y: 0.95, z: 0}
+  m_LocalPosition: {x: -0.0031, y: 7.45, z: 0}
+  m_LocalScale: {x: 31.23467, y: 0.95, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1010174319}

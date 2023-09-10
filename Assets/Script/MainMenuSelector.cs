@@ -6,15 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenuSelector : MonoBehaviour
 {
 
-    private FoodScript score;
+    private ScoreManager score;
 
-    // Start is called before the first frame update
     void Start()
     {
-        score = FindObjectOfType<FoodScript>();
+        score = FindObjectOfType<ScoreManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -23,7 +21,8 @@ public class MainMenuSelector : MonoBehaviour
     public void RetryScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        FoodScript.scoreNumber = 0;
+        ScoreManager.scoreNumber = 0;
+        ScoreManager.noWallScoreNumber = 0;
     }
 
     public void ClassicLevel()
@@ -31,9 +30,16 @@ public class MainMenuSelector : MonoBehaviour
         SceneManager.LoadScene("Classic");
     }
 
+    public void NoWallLevel()
+    {
+        SceneManager.LoadScene("No Wall");
+    }
+
     public void BackScene()
     {
         SceneManager.LoadScene("Re Snake");
+        ScoreManager.scoreNumber = 0;
+        ScoreManager.noWallScoreNumber = 0;
     }
 
     public void QuitButton()

@@ -4,35 +4,35 @@ using UnityEngine.UI;
 using UnityEngine;
 
 
-public class FoodScript : MonoBehaviour
+public class NoWallFoodScript : MonoBehaviour
 {
     //Collider
     public Collider2D gridArea;
 
+    //Accessing ScoreManager script
+    private ScoreManager score;
+
     //The way to access another script
     private PlayerMovement snake;
 
-    [Header("Score")]
-    [SerializeField] private Text scoreText;
-    [SerializeField] public static int scoreNumber;
-    [SerializeField] private Text highScoreText;
-    [SerializeField] private static int highScoreNumber;
 
     void Start()
     {
         //Storing the highscore even reloading the game
-        if (PlayerPrefs.HasKey("Highscore"))
-        {
-           highScoreNumber = PlayerPrefs.GetInt("Highscore");
-        }
+          if (PlayerPrefs.HasKey("NoWallHighscore"))
+          {
+            ScoreManager.noWallHighScoreNumber = PlayerPrefs.GetInt("NoWallHighscore");
+          }
 
+       
 
         snake = FindObjectOfType<PlayerMovement>();
+        score = FindAnyObjectByType<ScoreManager>();
     }
 
     private void Update()
     {
-        HighScoreSystem();
+        score.NoWallHighScoreSystem();
     }
 
     private void RandomFoodPosition()
@@ -77,30 +77,9 @@ public class FoodScript : MonoBehaviour
         {
             RandomFoodPosition();
 
-            ScoreSystem();
+            score.NoWallScoreSystem();
 
         }
     }
 
-    //Scoring System
-    private void ScoreSystem()
-    {
-        scoreNumber += 1;
-        scoreText.text = "Score: " + scoreNumber;
-    }
-
-    //Highscore system
-    private void HighScoreSystem()
-    {
-
-        //printing it
-        highScoreText.text = "Highscore: " + highScoreNumber;
-
-        //current highscore is now passed by score
-        if (highScoreNumber < scoreNumber)
-        {
-            highScoreNumber = scoreNumber;
-            PlayerPrefs.SetInt("Highscore", highScoreNumber);
-        }
-    }
 }

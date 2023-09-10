@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
 
-    private Animator anim;
     public GameObject GameOverScreen;
 
     //Speed and multiply it, speed * multiply
@@ -28,11 +27,6 @@ public class PlayerMovement : MonoBehaviour
 
     //Input
     private Vector2 input;
-
-    void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
 
     void Start()
     {
@@ -56,12 +50,10 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 input = Vector2.up;
-                anim.Play("SnakeUp");
             }
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 input = Vector2.down;
-                anim.Play("SnakeDown");
             }
         }
         // Only allow turning left or right while moving in the y-axis
@@ -70,12 +62,10 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 input = Vector2.right;
-                anim.Play("SnakeRight");
             }
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 input = Vector2.left;
-                anim.Play("SnakeLeft");
             }
         }
 
