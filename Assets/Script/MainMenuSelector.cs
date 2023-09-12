@@ -34,6 +34,11 @@ public class MainMenuSelector : MonoBehaviour
     {
         SceneManager.LoadScene("No Wall");
     }
+       
+    public void FourCornersLevel()
+    {
+        SceneManager.LoadScene("Four Corners");
+    }
 
     public void BackScene()
     {
