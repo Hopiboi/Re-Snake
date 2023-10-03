@@ -25,15 +25,17 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] public static int fourCornersScoreNumber;
     [SerializeField] public static int fourCornersHighScoreNumber;
 
-    void Start()
-    {
-        
-    }
+    [Header ("Middle Cross and HighScore")]
+    [SerializeField] private Text middleCrossScoreText;
+    [SerializeField] private Text middleCrossHighScoreText;
+    [SerializeField] public static int middleCrossScoreNumber;
+    [SerializeField] public static int middleCrossHighScoreNumber;
 
-    void Update()
-    {
-
-    }
+    [Header("Circle and HighScore")]
+    [SerializeField] private Text circleScoreText;
+    [SerializeField] private Text circleHighScoreText;
+    [SerializeField] public static int circleScoreNumber;
+    [SerializeField] public static int circleHighScoreNumber;
 
     //Function
     public void ScoreSystem()
@@ -96,5 +98,26 @@ public class ScoreManager : MonoBehaviour
         }
 
     }
+
+    public void CircleScoreSystem()
+    {
+        circleScoreNumber += 1;
+        circleScoreText.text = "Score: " + circleScoreNumber;
+    }
+
+    public void CircleHighScoreSystem()
+    {
+
+        circleHighScoreText.text = "Highscore: " + circleHighScoreNumber;
+
+        if (circleHighScoreNumber < circleScoreNumber)
+        {
+            circleHighScoreNumber = circleScoreNumber;
+            PlayerPrefs.SetInt("CircleHighscore", circleScoreNumber);
+        }
+
+    }
+
+
 
 }

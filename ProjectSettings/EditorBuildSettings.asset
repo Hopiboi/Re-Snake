@@ -13,8 +13,14 @@ EditorBuildSettings:
     guid: 39b78695bde3fa64c82160dca5ca49a2
   - enabled: 1
     path: Assets/Scenes/No Wall.unity
-    guid: 12ebeb6017ddb1244a404670033a2de9
+    guid: d234673918c90ec498df2e2089de4909
   - enabled: 1
     path: Assets/Scenes/Four Corners.unity
     guid: 71687b9e42f543749b9f83e51b480979
+  - enabled: 1
+    path: Assets/Scenes/Circle.unity
+    guid: bc875afce5d2bf342b22fc2eda9fe295
+  - enabled: 1
+    path: Assets/Scenes/Middle.unity
+    guid: 12ebeb6017ddb1244a404670033a2de9
   m_configObjects: {}

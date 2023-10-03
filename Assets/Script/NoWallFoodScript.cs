@@ -24,8 +24,6 @@ public class NoWallFoodScript : MonoBehaviour
             ScoreManager.noWallHighScoreNumber = PlayerPrefs.GetInt("NoWallHighscore");
           }
 
-       
-
         snake = FindObjectOfType<PlayerMovement>();
         score = FindAnyObjectByType<ScoreManager>();
     }

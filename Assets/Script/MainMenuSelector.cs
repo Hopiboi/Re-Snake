@@ -23,6 +23,8 @@ public class MainMenuSelector : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         ScoreManager.scoreNumber = 0;
         ScoreManager.noWallScoreNumber = 0;
+        ScoreManager.fourCornersScoreNumber = 0;
+        ScoreManager.circleScoreNumber = 0;
     }
 
     public void ClassicLevel()
@@ -40,11 +42,18 @@ public class MainMenuSelector : MonoBehaviour
         SceneManager.LoadScene("Four Corners");
     }
 
+    public void CircleLevel()
+    {
+        SceneManager.LoadScene("Circle");
+    }
+
     public void BackScene()
     {
         SceneManager.LoadScene("Re Snake");
         ScoreManager.scoreNumber = 0;
         ScoreManager.noWallScoreNumber = 0;
+        ScoreManager.fourCornersScoreNumber = 0;
+        ScoreManager.circleScoreNumber = 0;
     }
 
     public void QuitButton()

@@ -154,12 +154,10 @@ public class PlayerMovement : MonoBehaviour
         if (collision.tag == "Food")
         {
             Grow();
-            Debug.Log("Grow");
         }
 
         else if (collision.tag == "Obstacle")
         {
-            Debug.Log("Lose");
             Destroy(gameObject);
             speed = 0f;
             speedMultiplier = 0f;
@@ -168,8 +166,6 @@ public class PlayerMovement : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Wall"))
         {
-
-            Debug.Log("Walktrough");
 
             //right
             Vector3 position = transform.position;

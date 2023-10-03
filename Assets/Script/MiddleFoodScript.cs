@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 
 
-public class ClassicFoodScript : MonoBehaviour
+public class MiddleFoodScript : MonoBehaviour
 {
     //Collider
     public Collider2D gridArea;
@@ -19,9 +19,9 @@ public class ClassicFoodScript : MonoBehaviour
     void Start()
     {
         //Storing the highscore even reloading the game
-        if (PlayerPrefs.HasKey("Highscore"))
+          if (PlayerPrefs.HasKey("NoWallHighscore"))
           {
-             ScoreManager.highScoreNumber = PlayerPrefs.GetInt("Highscore");
+            ScoreManager.noWallHighScoreNumber = PlayerPrefs.GetInt("NoWallHighscore");
           }
 
         snake = FindObjectOfType<PlayerMovement>();
@@ -30,7 +30,7 @@ public class ClassicFoodScript : MonoBehaviour
 
     private void Update()
     {
-        score.HighScoreSystem();
+        score.NoWallHighScoreSystem();
     }
 
     private void RandomFoodPosition()
@@ -75,7 +75,7 @@ public class ClassicFoodScript : MonoBehaviour
         {
             RandomFoodPosition();
 
-            score.ScoreSystem();
+            score.NoWallScoreSystem();
 
         }
     }

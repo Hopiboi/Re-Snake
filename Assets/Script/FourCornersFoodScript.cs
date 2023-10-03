@@ -22,9 +22,7 @@ public class FourCornersFoodScript : MonoBehaviour
           if (PlayerPrefs.HasKey("FourCornersHighscore"))
           {
             ScoreManager.noWallHighScoreNumber = PlayerPrefs.GetInt("FourCornersHighscore   ");
-          }
-
-       
+          }   
 
         snake = FindObjectOfType<PlayerMovement>();
         score = FindAnyObjectByType<ScoreManager>();

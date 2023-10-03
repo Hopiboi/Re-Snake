@@ -625,6 +625,10 @@ MonoBehaviour:
   noWallHighScoreText: {fileID: 0}
   fourCornersScoreText: {fileID: 480457780}
   fourCornersHighScoreText: {fileID: 726823851}
+  middleCrossScoreText: {fileID: 0}
+  middleCrossHighScoreText: {fileID: 0}
+  circleScoreText: {fileID: 0}
+  circleHighScoreText: {fileID: 0}
 --- !u!114 &201689720
 MonoBehaviour:
   m_ObjectHideFlags: 0
