@@ -25,6 +25,8 @@ public class MainMenuSelector : MonoBehaviour
         ScoreManager.noWallScoreNumber = 0;
         ScoreManager.fourCornersScoreNumber = 0;
         ScoreManager.circleScoreNumber = 0;
+        ScoreManager.middleScoreNumber = 0;
+        ScoreManager.trainYardScoreNumber = 0;
     }
 
     public void ClassicLevel()
@@ -46,6 +48,15 @@ public class MainMenuSelector : MonoBehaviour
     {
         SceneManager.LoadScene("Circle");
     }
+    public void MiddleLevel()
+    {
+        SceneManager.LoadScene("Middle");
+    }
+
+    public void TrainYardLevel()
+    {
+        SceneManager.LoadScene("Train Yard");
+    }
 
     public void BackScene()
     {
@@ -54,10 +65,13 @@ public class MainMenuSelector : MonoBehaviour
         ScoreManager.noWallScoreNumber = 0;
         ScoreManager.fourCornersScoreNumber = 0;
         ScoreManager.circleScoreNumber = 0;
+        ScoreManager.middleScoreNumber = 0;
+        ScoreManager.trainYardScoreNumber = 0;
     }
 
     public void QuitButton()
     {
+        Application.Quit();
         Debug.Log("Quit");
     }
 }

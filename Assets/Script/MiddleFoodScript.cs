@@ -21,7 +21,7 @@ public class MiddleFoodScript : MonoBehaviour
         //Storing the highscore even reloading the game
           if (PlayerPrefs.HasKey("NoWallHighscore"))
           {
-            ScoreManager.noWallHighScoreNumber = PlayerPrefs.GetInt("NoWallHighscore");
+            ScoreManager.middleHighScoreNumber = PlayerPrefs.GetInt("NoWallHighscore");
           }
 
         snake = FindObjectOfType<PlayerMovement>();

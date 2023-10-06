@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 
 
-public class FourCornersFoodScript : MonoBehaviour
+public class TrainYardFoodScript : MonoBehaviour
 {
     //Collider
     public Collider2D gridArea;
@@ -19,10 +19,10 @@ public class FourCornersFoodScript : MonoBehaviour
     void Start()
     {
         //Storing the highscore even reloading the game
-          if (PlayerPrefs.HasKey("FourCornersHighscore"))
+          if (PlayerPrefs.HasKey("TrainYardlHighscore"))
           {
-            ScoreManager.fourCornersHighScoreNumber = PlayerPrefs.GetInt("FourCornersHighscore   ");
-          }   
+            ScoreManager.trainYardHighScoreNumber = PlayerPrefs.GetInt("NoWallHighscore");
+          }
 
         snake = FindObjectOfType<PlayerMovement>();
         score = FindAnyObjectByType<ScoreManager>();
@@ -30,7 +30,7 @@ public class FourCornersFoodScript : MonoBehaviour
 
     private void Update()
     {
-        score.FourCornersHighScoreSystem();
+        score.NoWallHighScoreSystem();
     }
 
     private void RandomFoodPosition()
@@ -75,7 +75,7 @@ public class FourCornersFoodScript : MonoBehaviour
         {
             RandomFoodPosition();
 
-            score.FourCornersScoreSystem();
+            score.NoWallScoreSystem();
 
         }
     }

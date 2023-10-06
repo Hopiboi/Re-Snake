@@ -21,7 +21,7 @@ public class CircleFoodScript : MonoBehaviour
         //Storing the highscore even reloading the game
         if (PlayerPrefs.HasKey("CircleHighscore"))
           {
-             ScoreManager.highScoreNumber = PlayerPrefs.GetInt("CircleHighscore");
+             ScoreManager.circleHighScoreNumber = PlayerPrefs.GetInt("CircleHighscore");
           }
 
         snake = FindObjectOfType<PlayerMovement>();

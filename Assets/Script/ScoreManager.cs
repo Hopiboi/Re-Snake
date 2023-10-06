@@ -37,6 +37,18 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] public static int circleScoreNumber;
     [SerializeField] public static int circleHighScoreNumber;
 
+    [Header("Middle and HighScore")]
+    [SerializeField] private Text middleScoreText;
+    [SerializeField] private Text middleHighScoreText;
+    [SerializeField] public static int middleScoreNumber;
+    [SerializeField] public static int middleHighScoreNumber;
+
+    [Header("TrainYard and HighScore")]
+    [SerializeField] private Text trainYardScoreText;
+    [SerializeField] private Text trainYardHighScoreText;
+    [SerializeField] public static int trainYardScoreNumber;
+    [SerializeField] public static int trainYardHighScoreNumber;
+
     //Function
     public void ScoreSystem()
     {
@@ -114,6 +126,25 @@ public class ScoreManager : MonoBehaviour
         {
             circleHighScoreNumber = circleScoreNumber;
             PlayerPrefs.SetInt("CircleHighscore", circleScoreNumber);
+        }
+
+    }
+    
+    public void TrainYardScoreSystem()
+    {
+        trainYardScoreNumber += 1;
+        trainYardScoreText.text = "Score: " + trainYardScoreNumber;
+    }
+
+    public void TrainYardHighScoreSystem()
+    {
+
+        trainYardHighScoreText.text = "Highscore: " + trainYardHighScoreNumber;
+
+        if (trainYardHighScoreNumber < trainYardScoreNumber)
+        {
+            trainYardHighScoreNumber = trainYardScoreNumber;
+            PlayerPrefs.SetInt("TrainYardHighscore", trainYardScoreNumber);
         }
 
     }
