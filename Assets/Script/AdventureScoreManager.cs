@@ -7,30 +7,16 @@ public class AdventureScoreManager : MonoBehaviour
 {
     //Variables
 
-    [Header("Classic Score and HighScore")]
-    [SerializeField] private Text scoreText;
-    [SerializeField] private Text highScoreText;
-    [SerializeField] public static int scoreNumber;
-    [SerializeField] public static int highScoreNumber;
+    [Header("Adventure Food Left")]
+    [SerializeField] private Text foodLeftText;
+    [SerializeField] public static int foodLefNumber;
 
     public void ScoreSystem()
     {
-        scoreNumber += 1;
-        scoreText.text = "Score: " + scoreNumber;
+        foodLefNumber -= 1;
+        foodLeftText.text = "Score: " + foodLefNumber;
     }
 
-    public void HighScoreSystem()
-    {
-        //printing it
-        highScoreText.text = "Highscore: " + highScoreNumber;
 
-        //current highscore is now passed by score
-        if (highScoreNumber < scoreNumber)
-         {
-            highScoreNumber = scoreNumber;
-            PlayerPrefs.SetInt("Highscore", highScoreNumber);
-         }
-
-    }
 
 }

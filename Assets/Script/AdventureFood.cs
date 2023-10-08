@@ -8,16 +8,13 @@ public class AdventureFood: MonoBehaviour
 {
 
     //Accessing ScoreManager script
-    private ScoreManager score;
+    private AdventureScoreManager adventureScore;
 
 
     void Start()
     {
-        //Storing the highscore even reloading the game
-        if (PlayerPrefs.HasKey("Highscore"))
-          {
-             ScoreManager.highScoreNumber = PlayerPrefs.GetInt("Highscore");
-          }
+
+
 
     }
 
