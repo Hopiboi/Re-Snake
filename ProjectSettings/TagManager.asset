@@ -44,3 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Design
+    uniqueID: 2002340877
+    locked: 0
+  - name: Level
+    uniqueID: 958202475
+    locked: 0
+  - name: Obstacle
+    uniqueID: 3543456371
+    locked: 0

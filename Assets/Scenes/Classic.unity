@@ -522,9 +522,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 480457780}
-  scoreText1: {fileID: 0}
   highScoreText: {fileID: 726823851}
-  highScoreText1: {fileID: 726823851}
+  noWallScoreText: {fileID: 0}
+  noWallHighScoreText: {fileID: 0}
+  fourCornersScoreText: {fileID: 0}
+  fourCornersHighScoreText: {fileID: 0}
+  middleCrossScoreText: {fileID: 0}
+  middleCrossHighScoreText: {fileID: 0}
+  circleScoreText: {fileID: 0}
+  circleHighScoreText: {fileID: 0}
+  middleScoreText: {fileID: 0}
+  middleHighScoreText: {fileID: 0}
+  trainYardScoreText: {fileID: 0}
+  trainYardHighScoreText: {fileID: 0}
 --- !u!1 &235757066
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,6 +58,11 @@ public class MainMenuSelector : MonoBehaviour
         SceneManager.LoadScene("Train Yard");
     }
 
+    public void AdventureLevel()
+    {
+        SceneManager.LoadScene("Adventure");
+    }
+
     public void BackScene()
     {
         SceneManager.LoadScene("Re Snake");

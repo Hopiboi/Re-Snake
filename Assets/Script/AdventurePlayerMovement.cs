@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class AdventurePlayerMovement : MonoBehaviour
 {
 
     public GameObject GameOverScreen;
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        ResetState();
+        SnakeState();
     }
 
 
@@ -104,26 +104,11 @@ public class PlayerMovement : MonoBehaviour
         nextUpdate = Time.time + (1f / (speed * speedMultiplier));
     }
 
-    //growing the snake
-    private void Grow()
-    {
-        //instantiate or appearing
-        Transform segment = Instantiate(this.segmentPrefab);
 
-        //position
-        segment.position = segments[segments.Count - 1].position;
-        segments.Add(segment);
-    }
 
     // Resetting without using button or connect it with button
-    private void ResetState()
+    private void SnakeState()
     {
-        for (int i = 1; i < segments.Count; i++)
-        {
-            Destroy(segments[i].gameObject);
-        }
-
-        segments.Clear();
         segments.Add(this.transform);
 
         for (int i = 1; i < this.initialSize; i++)
@@ -131,32 +116,14 @@ public class PlayerMovement : MonoBehaviour
             segments.Add(Instantiate(this.segmentPrefab));
         }
 
-        this.transform.position = Vector3.zero;
 
-    }
-
-    public bool Occupies(float x, float y)
-    {
-        foreach (Transform segment in segments)
-        {
-            if (segment.position.x == x && segment.position.y == y)
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     //snake collide food, snake will grow
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Food")
-        {
-            Grow();
-        }
 
-        else if (collision.tag == "Obstacle")
+        if (collision.tag == "Obstacle")
         {
             Destroy(gameObject);
             speed = 0f;
@@ -164,24 +131,6 @@ public class PlayerMovement : MonoBehaviour
             GameOverScreen.gameObject.SetActive(true);
         }
 
-        else if (collision.gameObject.CompareTag("Wall"))
-        {
-
-            //right
-            Vector3 position = transform.position;
-
-            if (direction.x != 0f)
-            {
-                position.x = -collision.transform.position.x + direction.x;
-            }
-            //top
-            else if (direction.y != 0f)
-            {
-                position.y = -collision.transform.position.y + direction.y;
-            }
-
-            transform.position = position;
-        }
     }
 
 }
