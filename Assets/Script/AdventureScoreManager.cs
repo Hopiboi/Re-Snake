@@ -5,16 +5,33 @@ using UnityEngine;
 
 public class AdventureScoreManager : MonoBehaviour
 {
-    //Variables
 
     [Header("Adventure Food Left")]
-    [SerializeField] private Text foodLeftText;
-    [SerializeField] public static int foodLefNumber;
+    [SerializeField] public Text foodLeftText;
+    [SerializeField] public static int foodLeftNumber;
+    [SerializeField] public static int noFoodLeft;
 
-    public void ScoreSystem()
+    [SerializeField] private GameObject blockObstacle;
+
+    private void Start()
     {
-        foodLefNumber -= 1;
-        foodLeftText.text = "Score: " + foodLefNumber;
+        foodLeftNumber = 3;
+    }
+
+    private void Update()
+    {
+        foodLeftText.text = foodLeftNumber.ToString();
+    }
+
+    public void SubtractFoodSystem()
+    {
+        foodLeftNumber -= 1;
+        foodLeftText.text = foodLeftNumber.ToString();
+
+        if(foodLeftNumber == 0)
+        {
+            blockObstacle.gameObject.SetActive(false);
+        }
     }
 
 
