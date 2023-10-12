@@ -28,12 +28,14 @@ public class AdventureFood: MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-
             adventureScore.SubtractFoodSystem();
-
-            //blockObstacle.gameObject.SetActive(false);
             Destroy(gameObject);
+        }
 
+        else if (collision.tag == "Player2")
+        {
+            adventureScore.SubtractFoodSystem2();
+            Destroy(gameObject);
         }
     }
 

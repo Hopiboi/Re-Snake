@@ -116,10 +116,9 @@ public class AdventurePlayerMovement : MonoBehaviour
             segments.Add(Instantiate(this.segmentPrefab));
         }
 
-
     }
 
-    //snake collide food, snake will grow
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -129,6 +128,13 @@ public class AdventurePlayerMovement : MonoBehaviour
             speed = 0f;
             speedMultiplier = 0f;
             GameOverScreen.gameObject.SetActive(true);
+        }
+
+        else if (collision.tag == "Goal")
+        {
+
+            SceneManager.LoadScene("Adventure 2");
+
         }
 
     }

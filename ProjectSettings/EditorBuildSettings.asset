@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Train Yard.unity
     guid: e5bd4f61e16508c4b96fd74aad68b9d6
   - enabled: 1
-    path: Assets/Scenes/Adventure.unity
+    path: Assets/Scenes/Adventure 1.unity
     guid: 39b78695bde3fa64c82160dca5ca49a2
+  - enabled: 1
+    path: Assets/Scenes/Adventure 2.unity
+    guid: b971657d270766b498a3cb77444ea202
   m_configObjects: {}
