@@ -37,6 +37,12 @@ public class AdventureFood: MonoBehaviour
             adventureScore.SubtractFoodSystem2();
             Destroy(gameObject);
         }
+
+        else if (collision.tag == "Player3")
+        {
+            adventureScore.SubtractFoodSystem3();
+            Destroy(gameObject);
+        }
     }
 
 }

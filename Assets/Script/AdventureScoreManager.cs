@@ -9,12 +9,14 @@ public class AdventureScoreManager : MonoBehaviour
     [Header("Adventure Food Left")]
     [SerializeField] public Text foodLeftText;
     [SerializeField] public static int foodLeftNumber;
-    [SerializeField] public static int noFoodLeft;
 
     [Header("Adventure Food Left2")]
     [SerializeField] public Text foodLeftText2;
     [SerializeField] public static int foodLeftNumber2;
-    [SerializeField] public static int noFoodLeft2;
+
+    [Header("Adventure Food Left3")]
+    [SerializeField] public Text foodLeftText3;
+    [SerializeField] public static int foodLeftNumber3;
 
 
     [Header("Game Object")]
@@ -24,6 +26,7 @@ public class AdventureScoreManager : MonoBehaviour
     {
         foodLeftNumber = 3;
         foodLeftNumber2 = 4;
+        foodLeftNumber3 = 1;
     }
 
     private void Update()
@@ -48,6 +51,17 @@ public class AdventureScoreManager : MonoBehaviour
         foodLeftText2.text = foodLeftNumber2.ToString();
 
         if (foodLeftNumber2 == 0)
+        {
+            blockObstacle.gameObject.SetActive(false);
+        }
+    }
+
+    public void SubtractFoodSystem3()
+    {
+        foodLeftNumber3 -= 1;
+        foodLeftText3.text = foodLeftNumber3.ToString();
+
+        if (foodLeftNumber3 == 0)
         {
             blockObstacle.gameObject.SetActive(false);
         }

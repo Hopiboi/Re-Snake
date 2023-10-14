@@ -137,6 +137,21 @@ public class AdventurePlayerMovement : MonoBehaviour
 
         }
 
+        else if (collision.tag == "Goal2")
+        {
+
+            SceneManager.LoadScene("Adventure 3");
+
+        }
+
+        else if (collision.tag == "Goal3")
+        {
+
+            SceneManager.LoadScene("Adventure 3");
+
+        }
+
+
     }
 
 }

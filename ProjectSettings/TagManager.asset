@@ -9,6 +9,9 @@ TagManager:
   - Obstacle
   - Goal
   - Player2
+  - Goal2
+  - Player3
+  - Goal3
   layers:
   - Default
   - TransparentFX
