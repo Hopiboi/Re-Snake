@@ -147,7 +147,7 @@ public class AdventurePlayerMovement : MonoBehaviour
         else if (collision.tag == "Goal3")
         {
 
-            SceneManager.LoadScene("Adventure 3");
+            SceneManager.LoadScene("Congratulation");
 
         }
 

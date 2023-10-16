@@ -60,7 +60,7 @@ public class MainMenuSelector : MonoBehaviour
 
     public void AdventureLevel()
     {
-        SceneManager.LoadScene("Adventure");
+        SceneManager.LoadScene("Adventure 1");
     }
 
     public void BackScene()
