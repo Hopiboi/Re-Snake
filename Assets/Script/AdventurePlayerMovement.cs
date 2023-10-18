@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class AdventurePlayerMovement : MonoBehaviour
 {
-
+    Animator anim;
     public GameObject GameOverScreen;
 
     //Speed and multiply it, speed * multiply
@@ -30,6 +30,7 @@ public class AdventurePlayerMovement : MonoBehaviour
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         SnakeState();
     }
 
@@ -50,10 +51,12 @@ public class AdventurePlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 input = Vector2.up;
+                anim.Play("Up");
             }
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 input = Vector2.down;
+                anim.Play("Down");
             }
         }
         // Only allow turning left or right while moving in the y-axis
@@ -62,10 +65,12 @@ public class AdventurePlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 input = Vector2.right;
+                anim.Play("Right");
             }
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 input = Vector2.left;
+                anim.Play("Left");
             }
         }
 
